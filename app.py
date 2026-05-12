@@ -25,7 +25,7 @@ st.title("📊 2025년 외국인 방문객 특성과 입국 흐름 분석")
 st.markdown("---")
 
 # --- [분석 질문 1] ---
-st.subheader("🔍 1. 어느 대륙에서 많이 왔고, 2030세대 비중은 어떠할까?")
+st.subheader("🔍 1. 외국인 방문객은 어느 대륙에서 많이 왔고, 그중 20~30대 비중은 어떻게 다를까?")
 
 sql1 = """
 SELECT 대륙, 소계, 
@@ -61,7 +61,7 @@ st.write("- 비중이 높은 대륙을 타겟으로 한 SNS 마케팅 전략이 
 
 # --- [분석 질문 2] ---
 st.markdown("---")
-st.subheader("🔍 2. 외국인 방문객은 어떤 목적으로 한국을 방문했을까?")
+st.subheader("🔍 2. 외국인 방문객은 대륙별로 어떤 목적으로 한국을 방문했을까?")
 
 sql2 = "SELECT 대륙, 관광, 상용, 공용, 유학_연수, 기타 FROM purpose WHERE 대륙 != '계'"
 df2 = run_query(sql2)
@@ -81,7 +81,7 @@ st.write("- 특정 대륙에서 '유학_연수'나 '상용' 목적의 비중이 
 
 # --- [분석 질문 3] ---
 st.markdown("---")
-st.subheader("🔍 3. 대륙별 공항 vs 항구 입국 경로 분석")
+st.subheader("🔍 3. 대륙별 외국인 방문객의 공항·항구 입국 경로는 어떻게 다를까?")
 
 sql3 = "SELECT 대륙, 공항_소계, 항구_소계 FROM transport WHERE 대륙 != '계'"
 df3 = run_query(sql3)
