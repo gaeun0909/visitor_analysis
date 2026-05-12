@@ -40,11 +40,11 @@ df1['젊은층_비중'] = (df1['젊은층_합계'] / df1['소계']) * 100
 # 시각화 (콤보 차트: 막대 + 라인)
 fig1 = go.Figure()
 fig1.add_trace(go.Bar(x=df1['대륙'], y=df1['소계'], name='전체 방문객', marker_color='skyblue'))
-fig1.add_trace(go.Scatter(x=df1['대륙'], y=df1['젊은층_비중'], name='젊은층 비중(%)', yaxis='y2', line=dict(color='red', width=3)))
+fig1.add_trace(go.Scatter(x=df1['대륙'], y=df1['2030 비중'], name='2030 비중(%)', yaxis='y2', line=dict(color='red', width=3)))
 
 fig1.update_layout(
     yaxis=dict(title="방문객 수 (명)"),
-    yaxis2=dict(title="젊은층 비중 (%)", overlaying='y', side='right'),
+    yaxis2=dict(title="2030 비중 (%)", overlaying='y', side='right'),
     legend=dict(x=1.1, y=1.1)
 )
 st.plotly_chart(fig1, use_container_width=True)
@@ -54,7 +54,7 @@ with st.expander("사용한 SQL 보기"):
 
 st.info("""
 **💡 인사이트**
-1. 아시아 대륙의 방문객 수가 압도적으로 많으며, 다른 대륙에 비해 젊은 층(0~29세)의 방문 비중이 높게 나타납니다.
+1. 아시아 대륙의 방문객 수가 압도적으로 많으며, 다른 대륙에 비해 20~30대의 방문 비중이 높게 나타납니다.
 2. 구주(유럽)나 미주 지역은 방문객 수는 적지만 젊은 층 비중이 일정 수준 유지되어 교육이나 문화 체험 목적의 방문을 유추할 수 있습니다.
 """)
 
